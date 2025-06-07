@@ -1,0 +1,9 @@
+# Dependências do Node.js
+/node_modules
+
+# Banco de dados local (é uma boa prática não enviar dados de usuários para o repositório)
+*.db
+
+# Logs e arquivos de sistema
+npm-debug.log
+.DS_Store
