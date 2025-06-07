@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>WebChat Login</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container-inicio">
+        <h1>WebChat!</h1>
+        <p>Faça login ou registre-se para entrar no chat!</p>
+
+        <h4>Login:</h4>
+        <input type="text" id="loginUsername" placeholder="Nome de usuário" />
+        <input type="password" id="loginPassword" placeholder="Senha" />
+        <button id="loginButton">Entrar</button>
+
+        <h4>Registro:</h4>
+        <input type="text" id="registerUsername" placeholder="Nome de usuário" />
+        <input type="password" id="registerPassword" placeholder="Senha" />
+        <div id="iconSelector">
+            <img src="https://images.unsplash.com/photo-1568572933382-74d440642117" alt="Icone1" class="icon"
+                data-icon="https://images.unsplash.com/photo-1568572933382-74d440642117">
+            <img src="https://images.unsplash.com/photo-1592194996308-7b43878e84a6" alt="Icone2" class="icon"
+                data-icon="https://images.unsplash.com/photo-1592194996308-7b43878e84a6">
+        </div>
+        <button id="registerButton">Registrar</button>
+    </div>
+
+    <script src="js/auth.js"></script>
+
+</body>
+
+</html>

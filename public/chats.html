@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>WebChat</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="modalGrupo" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h4>Criar Novo Grupo</h4>
+            <input type="text" id="groupNameInput" placeholder="Nome do Grupo">
+            <button id="createGroupButton">Criar</button>
+        </div>
+    </div>
+
+    <div class="container">
+        <sidenav class="sidenav">
+            <div class="usuario">
+                <h4>Logado como: </h4>
+                <div id="usuario-info"></div>
+            </div>
+            <div class="cabecalho">
+                <h4>Seus grupos</h4>
+                <button id="showGroupModalButton" class="small-button">+</button>
+            </div>
+            <div id='gruposContainer'>
+                <ul id="gruposLista">
+                </ul>
+            </div>
+        </sidenav>
+
+        <content>
+            <div id="chatBox">
+                <h4 id="chatWith">Selecione um usuário ou grupo para conversar</h4>
+                <div id="chatMessages"></div>
+                <input type="text" id="chatInput" placeholder="Digite sua mensagem..." />
+                <button id="sendChat">Enviar</button>
+            </div>
+        </content>
+
+        <sidenav>
+            <div class="usuarios-online">
+                <h4>Usuários Online:</h4>
+                <div id="listaUsuarios"></div>
+            </div>
+        </sidenav>
+    </div>
+
+    <script type="module" src="js/chat.js"></script>
+</body>
+
+</html>
