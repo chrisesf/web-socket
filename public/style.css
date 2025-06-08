@@ -21,7 +21,6 @@ img.icon.selected {
 
 .usuario {
     display: flex;
-    align-items: center;
     gap: 10px;
     margin-bottom: 10px;
     cursor: pointer;
@@ -75,7 +74,7 @@ img.icon.selected {
 #chatBox {
     display: none;
     flex-direction: column;
-    width: 100%;
+    /* width: 100%; */
     border: 1px solid #bde1ff;
     border-radius: 10px;
     margin: 0 auto;
@@ -139,6 +138,7 @@ content {
 sidenav {
     width: 30%;
     padding: 0 10px;
+    margin: 10px;
 }
 
 #chatBox input {
@@ -206,6 +206,9 @@ sidenav {
     max-width: 400px;
     border-radius: 10px;
     position: relative;
+    justify-content: center;
+  display: flex;
+  flex-direction: column;
 }
 
 .close-button {
@@ -235,4 +238,8 @@ sidenav {
 
 .add-user-button {
     margin-left: auto;
+}
+
+h4{
+    margin-bottom: 3px;
 }
