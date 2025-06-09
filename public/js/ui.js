@@ -8,6 +8,7 @@ export const ui = {
     modalGrupo: document.getElementById("modalGrupo"),
     closeModalButton: document.querySelector(".close-button"),
 
+    // Inicializa a interface do usuário
     updateUserInfo(user) {
         const userInfoDiv = document.getElementById("usuario-info");
         userInfoDiv.innerHTML = `
@@ -16,6 +17,7 @@ export const ui = {
         `;
     },
 
+    // Atualiza a lista de usuários
     updateUserList(users, currentUser, currentChatTarget, onUserClick, onAddUserClick) {
         this.listaUsuariosDiv.innerHTML = "";
         users.forEach(user => {
@@ -40,14 +42,14 @@ export const ui = {
             this.listaUsuariosDiv.appendChild(userDiv);
         });
     },
-
+    // Atualiza a lista de grupos
     updateGroupList(groups, onGroupClick) {
         this.gruposLista.innerHTML = "";
         groups.forEach(group => {
             this.addGroupToList(group, onGroupClick);
         });
     },
-
+    // Adiciona um grupo à lista de grupos
     addGroupToList(group, onGroupClick) {
         const li = document.createElement("li");
         li.textContent = group.name;
@@ -55,7 +57,7 @@ export const ui = {
         li.addEventListener("click", () => onGroupClick(group));
         this.gruposLista.appendChild(li);
     },
-
+    //Ativa e configura a janela de chat para um alvo específico (usuário ou grupo)
     activateChatWindow(target) {
         this.chatBox.style.display = "flex";
         this.chatWith.textContent = `Chat com ${target.name}`;
@@ -63,11 +65,12 @@ export const ui = {
         this.chatInput.dataset.type = target.type; // 'private' or 'group'
         this.chatMessages.innerHTML = "";
     },
-
+    //Abre o modal
     toggleModal(show) {
         this.modalGrupo.style.display = show ? "block" : "none";
     },
 
+    //Exibe nova mensagem do chat
     displayMessage(message) {
         const p = document.createElement("p");
         p.innerHTML = `<strong>${message.fromName}:</strong> ${message.message}`;

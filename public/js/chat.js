@@ -1,6 +1,7 @@
 import socket from './socket.js';
 import { ui } from './ui.js';
 
+// Carrega os dados do usuário do armazenamento local. Se não houver usuário, redireciona para a página de login.
 const user = JSON.parse(localStorage.getItem("user"));
 if (!user) {
     window.location.href = "index.html";
@@ -9,12 +10,14 @@ if (!user) {
 // Mantém o controle da conversa ativa (pode ser um usuário ou um grupo)
 let currentChatTarget = null;
 
+// Atualiza a interface do usuário com as informações do usuário logado
 ui.updateUserInfo(user);
 
 function startChat(target) {
     currentChatTarget = target;
     ui.activateChatWindow(target);
 
+    // Determina se deve solicitar histórico de chat privado ou de grupo.
     const historyEventType = target.type === 'private' ? 'get_private_history' : 'get_group_history';
     socket.send(JSON.stringify({
         type: historyEventType,
@@ -23,16 +26,19 @@ function startChat(target) {
         groupId: target.id 
     }));
 
+        // Garante que o cliente seja registrado com o servidor quando a conexão WebSocket estiver aberta.
     if (socket.readyState === WebSocket.OPEN) {
         socket.send(JSON.stringify({ type: "register_client", user }));
     }
 }
 
+// Função para adicionar um usuário a um grupo
 function handleAddUserToGroup(userToAdd) {
     if (!currentChatTarget || currentChatTarget.type !== 'group') return;
 
     console.log(`Adicionando usuário ${userToAdd.name} ao grupo ${currentChatTarget.name}`);
-
+    
+    // Envia a solicitação de adição de usuário ao servidor.
     socket.send(JSON.stringify({
         type: 'add_user_to_group',
         userId: userToAdd.id,

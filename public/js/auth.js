@@ -1,9 +1,11 @@
+// Aguarda o carregamento completo do DOM antes de executar o script.
 document.addEventListener("DOMContentLoaded", () => {
     const loginButton = document.getElementById("loginButton");
     const registerButton = document.getElementById("registerButton");
     const icons = document.querySelectorAll(".icon");
     let selectedIcon = null;
 
+    //Seleciona o icone
     icons.forEach(icon => {
         icon.addEventListener("click", () => {
             icons.forEach(i => i.classList.remove("selected"));
@@ -12,6 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
+    //Coleta os dados de registro, valida e envia para a API.
     registerButton.addEventListener("click", async () => {
         const username = document.getElementById("registerUsername").value.trim();
         const password = document.getElementById("registerPassword").value.trim();
@@ -34,6 +37,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
+    //Coleta os dados de login, valida e envia para a API.
     loginButton.addEventListener("click", async () => {
         const username = document.getElementById("loginUsername").value.trim();
         const password = document.getElementById("loginPassword").value.trim();

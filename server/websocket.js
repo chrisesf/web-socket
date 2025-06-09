@@ -3,16 +3,18 @@ const db = require("./database");
 
 const clients = new Map();
 
+//Inicializa o WebSocket e define os eventos de conexão, mensagem e fechamento
 const initializeWebSocket = (server) => {
     const wss = new WebSocket.Server({ server });
-
+    // Evento disparado quando um novo cliente se conecta.
     wss.on("connection", (ws) => {
         console.log("Client connected");
-
+        // Evento disparado quando o servidor recebe uma mensagem de um cliente.
         ws.on("message", async (message) => {
             try {
-            const data = JSON.parse(message);
-
+            const data = JSON.parse(message); // Tenta analisar a mensagem recebida como JSON
+            
+            // Processa a mensagem com base no seu tipo. Cada tipo de mensagem é tratado de forma diferente, Registrando clientes, enviando mensagens privadas, criando grupos, etc.
             switch (data.type) {
                 case "register_client": {
                 const user = data.user;
@@ -56,7 +58,7 @@ const initializeWebSocket = (server) => {
 
                 await db.saveGroupMessage(groupId, groupFrom, groupMsg);
                 const members = await db.getGroupMembers(groupId);
-
+                // Envia a mensagem para todos os membros do grupo, exceto o remetente
                 members.forEach(memberId => {
                     if (memberId !== groupFrom) {
                     const memberClient = clients.get(memberId);
@@ -99,14 +101,15 @@ const initializeWebSocket = (server) => {
             }
         });
 
+        // Evento disparado quando um cliente se desconecta.
         ws.on("close", () => {
             for (const [id, client] of clients.entries()) {
                 if (client.ws === ws) {
                     console.log(`Cliente ${client.name} (ID: ${id}) desconectou.`);
 
-                    clients.delete(id);
+                    clients.delete(id); // Remove o cliente desconectado do map
 
-                    broadcastUserList(wss);
+                    broadcastUserList(wss); // Atualiza a lista de usuários conectados
                     break;
                 }
             }
@@ -115,6 +118,7 @@ const initializeWebSocket = (server) => {
     });
 };
 
+// Envia a lista atual de usuários conectados para todos os clientes ativos.
 function broadcastUserList(wss) {
     const userList = Array.from(clients.values()).map(client => ({
         id: [...clients.entries()].find(([id, c]) => c === client)[0],
