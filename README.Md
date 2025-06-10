@@ -4,7 +4,7 @@ Um sistema de chat simples que demonstra comunicação em tempo real usando WebS
 
 # Visão Geral do Projeto
 
-O WebChat permite que usuários se registrem, façam login e participem de conversas em tempo real. Ele oferece funcionalidades de:
+O WebChat permite que usuários se registrem, façam login e participem de conversas em tempo real, em grupos ou privadas. 
 
 # Tecnologias Utilizadas
 
