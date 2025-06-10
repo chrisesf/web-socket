@@ -1,11 +1,11 @@
-#WebChat: Sistema de Chat com WebSockets
+# WebChat: Sistema de Chat com WebSockets
 
 Um sistema de chat simples que demonstra comunicação em tempo real usando WebSockets, Node.js, Express e SQLite.
 #Visão Geral do Projeto
 
 O WebChat permite que usuários se registrem, façam login e participem de conversas em tempo real. Ele oferece funcionalidades de:
 
-#Tecnologias Utilizadas
+# Tecnologias Utilizadas
 
     Backend:
         Node.js: Ambiente de execução JavaScript.
@@ -17,7 +17,7 @@ O WebChat permite que usuários se registrem, façam login e participem de conve
         JavaScript (ES6+): Lógica do cliente, interação com WebSockets e manipulação do DOM.
         localStorage: Para persistir as informações do usuário logado.
 
-#Como Rodar o Projeto
+# Como Rodar o Projeto
 
 1. Clonar o Repositório (se aplicável)
 
