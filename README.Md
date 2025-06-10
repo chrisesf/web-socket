@@ -17,25 +17,6 @@ O WebChat permite que usuários se registrem, façam login e participem de conve
         JavaScript (ES6+): Lógica do cliente, interação com WebSockets e manipulação do DOM.
         localStorage: Para persistir as informações do usuário logado.
 
-#Estrutura de Pastas
-
-ChatApp/
-├── public/                 Arquivos estáticos acessíveis pelo navegador
-│   ├── css/
-│   │   └── style.css       Estilos da aplicação
-│   ├── js/
-│   │   ├── chats.js        Lógica do cliente para a página de chat
-│   │   ├── socket.js       Configuração da conexão WebSocket do cliente
-│   │   └── ui.js           Funções e manipulação da interface do usuário
-│   ├── index.html          Página de login e registro
-│   └── chats.html          Página principal do chat
-├── server/
-│   ├── database.js         Módulo para interação com o banco de dados SQLite
-│   └── websocket.js        Lógica do servidor WebSocket
-├── app.js                  Ponto de entrada do backend (servidor Express e WebSocket)
-├── package.json            M
-└── package-lock.json       
-
 #Como Rodar o Projeto
 
 1. Clonar o Repositório (se aplicável)
