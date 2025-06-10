@@ -52,7 +52,7 @@ function handleAddUserToGroup(userToAdd) {
 
 socket.addEventListener("message", (event) => {
     const data = JSON.parse(event.data);
-
+//Verifica o tipo de mensagem recebida e atualiza a interface do usuário ou inicia uma conversa conforme necessário.
     switch (data.type) {
         case 'user_list':
             ui.updateUserList(data.users, user, currentChatTarget, (chatUser) => {
