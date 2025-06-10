@@ -1,19 +1,55 @@
-# Chat Websockets
+#WebChat: Sistema de Chat com WebSockets
 
-## Objetivo do Trabalho
-O objetivo deste trabalho é familiarizar-se com o a programação de aplicações de rede com o uso de sockets. Para isso, você deve implementar uma das seguintes aplicações:
+Um sistema de chat simples que demonstra comunicação em tempo real usando WebSockets, Node.js, Express e SQLite.
+#Visão Geral do Projeto
 
-- Jogo de batalha naval;
-- Jogo de truco;
-- Serviço de troca de mensagens com possibilidade de criação de grupos;
+O WebChat permite que usuários se registrem, façam login e participem de conversas em tempo real. Ele oferece funcionalidades de:
 
-O que entregar? Arquivo compactado contendo os códigos associados ao trabalho. Os códigos devem ser nomeados com nomes sugestivos (e.g., cliente.py). O arquivo compactado deverá ser nomeado seguindo o padrão NUM_MATRICULA1_NUMMATRICULA2.formato (e.g., 39133_39199.tar.gz).
+#Tecnologias Utilizadas
 
-## Critérios de avaliação: 
+    Backend:
+        Node.js: Ambiente de execução JavaScript.
+        Express.js: Framework web para as rotas da API (registro, login).
+        ws: Biblioteca para implementação de WebSockets.
+        SQLite: Banco de dados leve e integrado para armazenar usuários, mensagens e grupos.
+    Frontend:
+        HTML5/CSS3: Estrutura e estilização da interface.
+        JavaScript (ES6+): Lógica do cliente, interação com WebSockets e manipulação do DOM.
+        localStorage: Para persistir as informações do usuário logado.
 
-Demonstração (2,0 pontos): o código atende a especificação? os resultados produzidos estão corretos?
-Documentação (0,5 ponto): o código está bem documentado e possui documentação de uso?
-Conhecimento individual da solução (2,5 pontos): os/as integrantes do grupo demonstram conhecimento sobre o código desenvolvido?
-Observação: Em caso códigos copiados/plagiados, a nota do trabalho de todos os alunos envolvidos será zerada, não importando quem efetivamente fez e quem copiou. Lembrem, discutir como resolver o problema é permitido, não pode copiar a solução.
+#Estrutura de Pastas
 
-# Como rodar
+ChatApp/
+├── public/                 Arquivos estáticos acessíveis pelo navegador
+│   ├── css/
+│   │   └── style.css       Estilos da aplicação
+│   ├── js/
+│   │   ├── chats.js        Lógica do cliente para a página de chat
+│   │   ├── socket.js       Configuração da conexão WebSocket do cliente
+│   │   └── ui.js           Funções e manipulação da interface do usuário
+│   ├── index.html          Página de login e registro
+│   └── chats.html          Página principal do chat
+├── server/
+│   ├── database.js         Módulo para interação com o banco de dados SQLite
+│   └── websocket.js        Lógica do servidor WebSocket
+├── app.js                  Ponto de entrada do backend (servidor Express e WebSocket)
+├── package.json            M
+└── package-lock.json       
+
+#Como Rodar o Projeto
+
+1. Clonar o Repositório (se aplicável)
+
+2. Instalar as Dependências
+
+3. Iniciar o Servidor
+
+Após a instalação das dependências, você pode iniciar o servidor Node.js com *npm start* ou *npm run dev*
+
+4. Acessar a Aplicação
+
+Abra seu navegador de preferência e acesse o seguinte endereço:
+
+http://localhost:3000
+
+Isso o levará à página de login/registro.
